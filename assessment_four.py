@@ -46,8 +46,14 @@ def rotate_matrix_90(matrix):
 
 def flatten_nested_list(nested):
     """Flatten a nested list of arbitrary depth using recursion."""
-    pass
-
+    li = []
+    for item in nested:
+        if isinstance(item,list):
+            li.extend(flatten_nested_list(item))
+        else:
+            li.append(item)
+        
+    return li
 
 def sum_nested_numbers(nested):
     """Return the sum of all numbers in a nested list using recursion."""
