@@ -57,7 +57,14 @@ def flatten_nested_list(nested):
 
 def sum_nested_numbers(nested):
     """Return the sum of all numbers in a nested list using recursion."""
-    pass
+    li = []
+    for item in nested:
+        if isinstance(item,list):
+            li.extend(flatten_nested_list(item))
+        else:
+            li.append(item)
+        
+    return sum(li)
 
 
 def generate_pascal_row(n):
